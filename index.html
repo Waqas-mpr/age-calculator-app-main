@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="agecalculator-stylesheet.css">
+  <title>Frontend Mentor | Age calculator app</title>
+
+
+</head>
+
+<body class="flex-center">
+
+  <main class="agecalculator-container">
+    <section>
+      <div class="agecalculator-input-section">
+        <div class="">
+          <p class="label-text">Day</p>
+          <input class="input-box" type="text" placeholder="DD">
+          <p class="error">This field is required</p>
+        </div>
+        <div>
+          <p class="label-text">Month</p>
+          <input class="input-box" type="text" placeholder="MM">
+          <p class="error">This field is required</p>
+        </div>
+        <div>
+          <p class="label-text">Year</p>
+          <input class="input-box" type="text" placeholder="YYYY">
+          <p class="error">This field is required</p>
+        </div>
+      </div>
+
+      <div class="button-container">
+
+        <div class="line"></div>
+        <div class="circle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
+            <g fill="none" stroke="#FFF" stroke-width="2.5">
+              <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
+            </g>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+    <section class="agecalculator-output-section">
+      <div class="flex ">
+        <h1 class="purple-color">--</h1>
+        <h1>years</h1>
+      </div>
+      <div class="flex ">
+        <h1 class="purple-color">--</h1>
+        <h1>months</h1>
+      </div>
+      <div class="flex ">
+        <h1 class="purple-color">--</h1>
+        <h1>days</h1>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
