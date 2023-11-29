@@ -37,7 +37,9 @@ function getDaysInLastMonth(date) {
 	return daysInMonth;
 }
 
-function ageCalculate(birthday) {
+function ageCalculate() {
+	const birthdate = validateInputs();
+
 	const currentDate = new Date();
 
 	const currentDay = _getDay(currentDate);
@@ -45,26 +47,23 @@ function ageCalculate(birthday) {
 	const currentMonth = getMonth(currentDate);
 	const currentYear = getYear(currentDate);
 
-	const birthDate = new Date(birthday);
+	const birthDate = new Date(
+		`${birthdate.month}/${birthdate.day}/${birthdate.year}`
+	);
 
-	const birthDay = _getDay(birthday);
-
-	console.log(`birthDay: ${birthDay}`);
-
-	const birthMonth = getMonth(birthday);
-	const birthYear = getYear(birthday);
+	const birthDay = _getDay(birthDate);
+	const birthMonth = getMonth(birthDate);
+	const birthYear = getYear(birthDate);
 
 	var monthsInAge;
 	var daysInAge;
 
 	var yearsInAge = currentYear - birthYear;
 
-	console.log(`yearsInAge: ${yearsInAge}`);
-
 	if (currentMonth < birthMonth) {
 		yearsInAge--;
 		monthsInAge = currentMonth + 12 - birthMonth;
-	} else months = currentMonth - birthMonth;
+	} else monthsInAge = currentMonth - birthMonth;
 
 	if (currentDay < birthDay) {
 		monthsInAge--;
@@ -74,5 +73,21 @@ function ageCalculate(birthday) {
 	return { years: yearsInAge, months: monthsInAge, days: daysInAge };
 }
 
-const age = ageCalculate("12/04/1987");
-console.log(age);
+function validateInputs() {
+	const day = document.getElementById("dayId").value;
+	const month = document.getElementById("monthId").value;
+	const year = document.getElementById("yearId").value;
+
+	const form = document.querySelector("form");
+
+	const birthdate = { day, month, year };
+
+	return birthdate;
+}
+let form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+	e.preventDefault();
+	const age = ageCalculate();
+
+	console.log(age);
+});
