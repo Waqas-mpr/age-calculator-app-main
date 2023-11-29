@@ -12,6 +12,8 @@ function setSuccess(element) {
 	}
 }
 
+function errors() {}
+
 function validateInputs() {
 	const dayElement = document.getElementById("dayId");
 	const monthElement = document.getElementById("monthId");
@@ -21,60 +23,26 @@ function validateInputs() {
 	const monthValue = monthElement.value;
 	const yearValue = yearElement.value;
 
+	console.log(`first-${dayValue}- ${dayElement}`);
+
+	console.log(dayElement);
 	const currentYear = getYear(new Date());
 
-	// const daysInMonth = getDaysInMonth(`${month}/${day}/${year}`);
-
-	// check day for empty input
-	if (dayValue === "" || dayValue === null) {
-		setError(dayElement);
-		return;
-		// check for invalid day
-	} else if (dayValue > 31) {
-		setError(dayElement, "Must be a valid day");
-		return;
-		// check for february day
-	} else if (monthValue == 2 && !checkLeapYear(yearValue) && dayValue > 28) {
-		setError(dayElement, "Must be a valid day");
-		return;
-		// check for months with max 30 days
-	} else if (
-		(monthValue == 4 ||
-			monthValue == 6 ||
-			monthValue == 9 ||
-			monthValue == 11) &&
-		dayValue > 30
-	) {
-		setError(dayElement, "Must be a valid day");
-		console.log(`first day`);
-		return;
-	} else {
-		setSuccess(dayElement);
+	if (monthValue <= 0 || monthValue > 12) {
+		setError(monthElement, "enter valid day value");
 	}
 
-	if (yearValue === "" || yearValue === null) {
-		console.log(`first year`);
-		setError(yearElement);
-		return;
-	} else if (yearValue > currentYear) {
-		setError(yearElement, "Must be in the past");
-		return;
-	} else {
-		setSuccess(yearElement);
+	if (dayValue <= 0 || dayValue > 31) {
+		setError(dayElement, "enter valid month value");
 	}
 
-	if (monthValue === "" || monthValue === null) {
-		setError(monthElement);
-		console.log(`first mmm`);
-		return;
-	} else if (monthValue > 12) {
-		setError(monthElement, "Must be a valid month");
-		return;
-	} else {
-		setSuccess(monthElement);
+	if (yearValue <= 0 || yearValue > 12) {
+		setError(yearElement, "enter valid year value");
 	}
 
 	const birthdate = { dayValue, monthValue, yearValue };
 
 	return birthdate;
 }
+
+function errors(element) {}
