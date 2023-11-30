@@ -193,6 +193,10 @@ input[type="number"] {
 	letter-spacing: 0.05em;
 }
 
+.warning-border {
+	border: 0.07rem solid var(--primary-light-red);
+}
+
 .error {
 	font-size: var(--fs-300);
 	color: var(--primary-light-red);
@@ -272,7 +276,7 @@ svg {
 	.button {
 		position: absolute;
 
-		transform: translate(-235%, -50%);
+		transform: translate(-240%, -50%);
 	}
 
 	.output-section {
