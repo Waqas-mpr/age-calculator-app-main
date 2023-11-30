@@ -35,10 +35,10 @@ function validateInputs() {
 		setError(dayElement);
 		isValidDay = false;
 	} else if (dayValue <= 0 || dayValue > 31) {
-		setError(dayElement, "enter valid day value");
+		setError(dayElement, "Must be a valid day");
 		isValidDay = false;
 	} else if (dayValue > daysInMonth) {
-		setError(dayElement, "Enter valid day value");
+		setError(dayElement, "Must be a valid day");
 		isValidDay = false;
 	} else setSuccess(dayElement);
 
@@ -46,7 +46,7 @@ function validateInputs() {
 		setError(monthElement);
 		isValidDay = false;
 	} else if (monthValue <= 0 || monthValue > 12) {
-		setError(monthElement, "enter valid month value");
+		setError(monthElement, "Must be a valid month");
 		isValidMonth = false;
 	} else setSuccess(monthElement);
 
@@ -54,7 +54,7 @@ function validateInputs() {
 		setError(yearElement);
 		isValidDay = false;
 	} else if (yearValue > currentYear) {
-		setError(yearElement, "Enter valid year value");
+		setError(yearElement, "Must be in the past");
 		isValidYear = false;
 	} else setSuccess(yearElement);
 

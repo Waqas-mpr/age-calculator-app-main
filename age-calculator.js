@@ -9,6 +9,10 @@ function ageCalculate() {
 	const monthElement = document.getElementById("monthId");
 	const yearElement = document.getElementById("yearId");
 
+	const dayOutput = document.getElementById("dayOutputId");
+	const monthOutput = document.getElementById("monthOutputId");
+	const yearOutput = document.getElementById("yearOutputId");
+
 	const dayValue = dayElement.value;
 	const monthValue = monthElement.value;
 	const yearValue = yearElement.value;
@@ -39,9 +43,9 @@ function ageCalculate() {
 		daysInAge = currentDay + helper.getDaysInLastMonth(currentDate) - birthDay;
 	} else daysInAge = currentDay - birthDay;
 
-	
-
-	return { years: yearsInAge, months: monthsInAge, days: daysInAge };
+	dayOutput.innerText = daysInAge;
+	monthOutput.innerText = monthsInAge;
+	yearOutput.innerText = yearsInAge;
 }
 
 let form = document.querySelector("form");

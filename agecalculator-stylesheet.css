@@ -17,9 +17,10 @@
 	--fw-700: 700;
 	--fw-800: 800;
 
-	--fs-300: 0.6rem;
+	--fs-200: 0.55rem;
+	--fs-300: 0.65rem;
 	--fs-400: 1rem;
-	--fs-500: 1.5rem;
+	--fs-500: 1.25rem;
 	--fs-600: 2rem;
 	--fs-700: 2.5rem;
 	--fs-800: 3rem;
@@ -135,26 +136,51 @@ select {
 	margin: 2rem;
 }
 
-.agecalculator-input-section {
-	display: flex;
+.input-section {
+	display: grid;
+	width: 80%;
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
 }
 
 .label-text {
 	font-size: var(--fs-300);
-	color: var(--primary-light-red);
+	color: var(--neutral-smokey-grey);
 	text-transform: uppercase;
-	letter-spacing: 0.2rem;
-	font-weight: var(--fw-300);
+	letter-spacing: 0.1rem;
+	display: block;
 }
 .input-box {
 	width: 7rem;
-	height: 3rem;
-	border: 0.05rem solid var(--neutral-light-grey);
-	border-radius: 0.25rem;
+	border: 0.07rem solid var(--neutral-light-grey);
+	outline: none;
+	border-radius: 0.35rem;
 	font-size: var(--fs-500);
-	padding-left: 1rem;
+	font-weight: 700;
+	padding-inline: 0.75rem;
+	padding-block: 1rem;
 	margin-block: 0.5rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+.input-box:focus {
+	border: 0.07rem solid var(--primary-purple);
+}
+
+::placeholder {
+	color: hsl(0, 1%, 44%);
+	font-weight: 800;
+	letter-spacing: 0.05em;
 }
 
 .error {
@@ -168,28 +194,34 @@ select {
 }
 
 .line {
-	position: absolute;
-	top: 1.5rem;
-	width: 95%;
+	/* position: absolute;
+	top: 2rem;
+	width: 90%;
 	height: 0.1rem;
 	background-color: var(--neutral-light-grey);
+	display: flex; */
+	margin-top: 2rem;
+	border: 1px solid var(--neutral-light-grey);
+	position: relative;
 }
-.circle {
+.button {
 	position: absolute;
-	top: -0.1rem;
-	right: 0.5rem;
+	right: 0;
 	background-color: var(--primary-purple);
-	width: 3.5rem;
-	height: 3.5rem;
+	width: 4rem;
+	height: 4rem;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: 0;
+
+	transform: translate(0%, -50%);
 }
 
-.circle:hover,
-.circle:focus-visible {
+.button:hover,
+.button:focus-visible {
 	background-color: var(--neutral-off-black);
 }
 svg {
@@ -220,23 +252,35 @@ h1 {
 	.agecalculator-container {
 		width: auto;
 	}
-	.input-box {
-		width: 5rem;
-		padding-left: 0.5rem;
-	}
-	.line {
-		position: absolute;
-		top: 3rem;
+	.input-section {
+		gap: 0.3rem;
 		width: 100%;
 	}
-	.circle {
+	.input-box {
+		width: 5.75rem;
+	}
+	.error {
+		font-size: var(--fs-200);
+	}
+	.line {
+		/* position: absolute;
+		top: 2.5rem;
+		width: 100%; */
+
+		/* margin-top: 4em;
+		border: 1px solid hsl(0, 0%, 86%);
+		position: relative; */
+
+		margin-top: 3em;
+	}
+	.button {
 		position: absolute;
-		top: 1rem;
-		left: 40%;
+
+		transform: translate(-175%, -50%);
 	}
 
 	.agecalculator-output-section {
-		margin-top: 7rem;
+		margin-top: 3.5rem;
 	}
 
 	h1 {

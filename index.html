@@ -18,23 +18,20 @@
   <main class="agecalculator-container">
     <section>
       <form action="">
-        <div class="agecalculator-input-section">
-          <div class="">
-
-            <p class="label-text">Day</p>
-            <input class="input-box" type="number" placeholder="DD" id="dayId" min="01" max="31"
-              oninput="validity.valid||(value='');">
+        <div class="input-section">
+          <div>
+            <label for="dayId" class="label-text">Day</label>
+            <input class="input-box" type="number" placeholder="DD" id="dayId" oninput="validity.valid||(value='');">
             <p class="error"></p>
           </div>
           <div>
-            <p class="label-text">Month</p>
-            <input class="input-box" type="number" placeholder="MM" id="monthId" min="01" max="12"
-              oninput="validity.valid||(value='');">
+            <label for="monthId" class="label-text">Month</label>
+            <input class="input-box" type="number" placeholder="MM" id="monthId" oninput="validity.valid||(value='');">
             <p class="error"></p>
           </div>
           <div>
-            <p class="label-text">Year</p>
-            <input class="input-box" type="number" placeholder="YYYY" id="yearId" min="1800">
+            <label for="yearId" class="label-text">Year</label>
+            <input class="input-box" type="number" placeholder="YYYY" id="yearId" min="1900">
             <p class="error"></p>
           </div>
 
@@ -45,7 +42,7 @@
 
           <div class="line"></div>
 
-          <button class="circle">
+          <button class="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
               <g fill="none" stroke="#FFF" stroke-width="2.5">
                 <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
@@ -59,16 +56,16 @@
     </section>
     <section class="agecalculator-output-section">
       <div class="flex ">
-        <h1 class="purple-color">--</h1>
-        <h1>years</h1>
+
+        <h1> <span id="yearOutputId" class="purple-color">--</span>years</h1>
       </div>
       <div class="flex ">
-        <h1 class="purple-color">--</h1>
-        <h1>months</h1>
+
+        <h1> <span id="monthOutputId" class="purple-color">--</span>months</h1>
       </div>
       <div class="flex ">
-        <h1 class="purple-color">--</h1>
-        <h1>days</h1>
+
+        <h1> <span id="dayOutputId" class="purple-color">--</span>days</h1>
       </div>
     </section>
   </main>
