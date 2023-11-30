@@ -149,7 +149,17 @@ select {
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	display: block;
+	font-style: normal;
+	font-weight: var(--fw-400);
 }
+
+.warning-label {
+	font-size: var(--fs-300);
+	color: var(--primary-light-red);
+	font-weight: var(--fw-400);
+	font-style: normal;
+}
+
 .input-box {
 	width: 7rem;
 	border: 0.07rem solid var(--neutral-light-grey);
@@ -194,12 +204,6 @@ input[type="number"] {
 }
 
 .line {
-	/* position: absolute;
-	top: 2rem;
-	width: 90%;
-	height: 0.1rem;
-	background-color: var(--neutral-light-grey);
-	display: flex; */
 	margin-top: 2rem;
 	border: 1px solid var(--neutral-light-grey);
 	position: relative;
@@ -229,11 +233,11 @@ svg {
 	cursor: pointer;
 }
 
-.agecalculator-output-section {
+.output-section {
 	margin-top: 4rem;
 }
 
-h1 {
+.text-output {
 	font-size: var(--fs-900);
 	font-weight: var(--fw-800);
 	line-height: 4.5rem;
@@ -263,23 +267,15 @@ h1 {
 		font-size: var(--fs-200);
 	}
 	.line {
-		/* position: absolute;
-		top: 2.5rem;
-		width: 100%; */
-
-		/* margin-top: 4em;
-		border: 1px solid hsl(0, 0%, 86%);
-		position: relative; */
-
 		margin-top: 3em;
 	}
 	.button {
 		position: absolute;
 
-		transform: translate(-175%, -50%);
+		transform: translate(-235%, -50%);
 	}
 
-	.agecalculator-output-section {
+	.output-section {
 		margin-top: 3.5rem;
 	}
 

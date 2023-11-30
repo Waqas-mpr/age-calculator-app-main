@@ -1,11 +1,13 @@
 function setError(element, message = "This field is required") {
-	const primaryLightRed = "#ff5757";
+	const primaryLightRed = "hsl(0, 100%, 67%)";
 
 	let formGroup = element.parentNode;
 	let error = formGroup.querySelector(".error");
+
 	formGroup.classList.add("error");
 	error.innerText = message;
-	element.style.borderColor = "red";
+	element.style.borderColor = primaryLightRed;
+	formGroup.querySelector(".label-text").classList.add("warning-label");
 }
 function setSuccess(element) {
 	const neutralOffBlack = "hsl(0, 0%, 8%)";
@@ -13,6 +15,7 @@ function setSuccess(element) {
 	let error = formGroup.querySelector(".error");
 	error.innerText = "";
 	element.style.borderColor = neutralOffBlack;
+	formGroup.querySelector(".label-text").classList.remove("warning-label");
 }
 
 function validateInputs() {
