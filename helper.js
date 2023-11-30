@@ -23,7 +23,13 @@ function getDaysInMonth(date) {
 	const year = getYear(date);
 	const month = getMonth(date);
 
-	const daysInMonth = new Date(year, month - 1, 0).getDate();
+	const daysInMonth = new Date(year, month, 0).getDate();
+
+	return daysInMonth;
+}
+
+function getDaysInMonth(month, year) {
+	const daysInMonth = new Date(year, month, 0).getDate();
 
 	return daysInMonth;
 }
@@ -32,7 +38,7 @@ function getDaysInLastMonth(date) {
 	const year = getYear(date);
 	const month = getMonth(date);
 
-	const daysInMonth = new Date(year, month - 2, 0).getDate();
+	const daysInMonth = new Date(year, month - 1, 0).getDate();
 
 	return daysInMonth;
 }

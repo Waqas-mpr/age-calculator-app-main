@@ -1,20 +1,25 @@
 function setError(element, message = "This field is required") {
+	const primaryLightRed = "#ff5757";
+
 	let formGroup = element.parentNode;
 	let error = formGroup.querySelector(".error");
 	formGroup.classList.add("error");
 	error.innerText = message;
-	//resetOutput();
+	element.style.borderColor = "red";
 }
 function setSuccess(element) {
+	const neutralOffBlack = "hsl(0, 0%, 8%)";
 	let formGroup = element.parentNode;
-	if (formGroup.classList.contains("error")) {
-		formGroup.classList.remove("error");
-	}
+	let error = formGroup.querySelector(".error");
+	error.innerText = "";
+	element.style.borderColor = neutralOffBlack;
 }
 
-function errors() {}
-
 function validateInputs() {
+	var isValidDay = true;
+	var isValidMonth = true;
+	var isValidYear = true;
+
 	const dayElement = document.getElementById("dayId");
 	const monthElement = document.getElementById("monthId");
 	const yearElement = document.getElementById("yearId");
@@ -23,26 +28,35 @@ function validateInputs() {
 	const monthValue = monthElement.value;
 	const yearValue = yearElement.value;
 
-	console.log(`first-${dayValue}- ${dayElement}`);
-
-	console.log(dayElement);
+	const daysInMonth = getDaysInMonth(monthValue, yearValue);
 	const currentYear = getYear(new Date());
 
-	if (monthValue <= 0 || monthValue > 12) {
-		setError(monthElement, "enter valid day value");
-	}
+	if (dayValue == "") {
+		setError(dayElement);
+		isValidDay = false;
+	} else if (dayValue <= 0 || dayValue > 31) {
+		setError(dayElement, "enter valid day value");
+		isValidDay = false;
+	} else if (dayValue > daysInMonth) {
+		setError(dayElement, "Enter valid day value");
+		isValidDay = false;
+	} else setSuccess(dayElement);
 
-	if (dayValue <= 0 || dayValue > 31) {
-		setError(dayElement, "enter valid month value");
-	}
+	if (monthValue == "") {
+		setError(monthElement);
+		isValidDay = false;
+	} else if (monthValue <= 0 || monthValue > 12) {
+		setError(monthElement, "enter valid month value");
+		isValidMonth = false;
+	} else setSuccess(monthElement);
 
-	if (yearValue <= 0 || yearValue > 12) {
-		setError(yearElement, "enter valid year value");
-	}
+	if (yearValue == "") {
+		setError(yearElement);
+		isValidDay = false;
+	} else if (yearValue > currentYear) {
+		setError(yearElement, "Enter valid year value");
+		isValidYear = false;
+	} else setSuccess(yearElement);
 
-	const birthdate = { dayValue, monthValue, yearValue };
-
-	return birthdate;
+	return isValidDay && isValidMonth && isValidYear;
 }
-
-function errors(element) {}

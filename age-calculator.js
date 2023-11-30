@@ -5,18 +5,20 @@
 // const validation = require("./validation");
 
 function ageCalculate() {
-	const birthdate = validateInputs();
+	const dayElement = document.getElementById("dayId");
+	const monthElement = document.getElementById("monthId");
+	const yearElement = document.getElementById("yearId");
+
+	const dayValue = dayElement.value;
+	const monthValue = monthElement.value;
+	const yearValue = yearElement.value;
 
 	const currentDate = new Date();
-
 	const currentDay = getDay(currentDate);
-
 	const currentMonth = getMonth(currentDate);
 	const currentYear = getYear(currentDate);
 
-	const birthDate = new Date(
-		`${birthdate.monthValue}/${birthdate.dayValue}/${birthdate.yearValue}`
-	);
+	const birthDate = new Date(`${monthValue}/${dayValue}/${yearValue}`);
 
 	const birthDay = getDay(birthDate);
 	const birthMonth = getMonth(birthDate);
@@ -37,6 +39,8 @@ function ageCalculate() {
 		daysInAge = currentDay + helper.getDaysInLastMonth(currentDate) - birthDay;
 	} else daysInAge = currentDay - birthDay;
 
+	
+
 	return { years: yearsInAge, months: monthsInAge, days: daysInAge };
 }
 
@@ -44,8 +48,8 @@ let form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	validateInputs();
-	const age = ageCalculate();
-
-	console.log(age);
+	if (validateInputs()) {
+		const age = ageCalculate();
+		console.log(age);
+	}
 });
