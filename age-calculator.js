@@ -1,16 +1,4 @@
-function ageCalculate() {
-	const dayElement = document.getElementById("dayId");
-	const monthElement = document.getElementById("monthId");
-	const yearElement = document.getElementById("yearId");
-
-	const dayOutput = document.getElementById("dayOutputId");
-	const monthOutput = document.getElementById("monthOutputId");
-	const yearOutput = document.getElementById("yearOutputId");
-
-	const dayValue = dayElement.value;
-	const monthValue = monthElement.value;
-	const yearValue = yearElement.value;
-
+function ageCalculate(yearValue, monthValue, dayValue) {
 	const currentDate = new Date();
 	var currentDay = Number(getDay(currentDate));
 	var currentMonth = Number(getMonth(currentDate));
@@ -36,6 +24,14 @@ function ageCalculate() {
 	var monthsInAge = currentMonth - birthMonth;
 	var daysInAge = currentDay - birthDay;
 
+	return { yearsInAge, monthsInAge, daysInAge };
+}
+
+function output(yearsInAge, monthsInAge, daysInAge) {
+	const dayOutput = document.getElementById("dayOutputId");
+	const monthOutput = document.getElementById("monthOutputId");
+	const yearOutput = document.getElementById("yearOutputId");
+
 	dayOutput.innerText = daysInAge;
 	monthOutput.innerText = monthsInAge;
 	yearOutput.innerText = yearsInAge;
@@ -45,9 +41,15 @@ let form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	console.log(validateInputs());
-	if (validateInputs()) {
-		const age = ageCalculate();
-		console.log(age);
+	var result = validateInputs();
+
+	if (result.isValid) {
+		const age = ageCalculate(
+			result.yearValue,
+			result.monthValue,
+			result.dayValue
+		);
+
+		output(age.yearsInAge, age.monthsInAge, age.daysInAge);
 	}
 });

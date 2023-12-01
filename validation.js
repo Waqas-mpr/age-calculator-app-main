@@ -61,5 +61,7 @@ function validateInputs() {
 		isValidYear = false;
 	} else setSuccess(yearElement);
 
-	return isValidDay && isValidMonth && isValidYear;
+	const isValid = isValidDay && isValidMonth && isValidYear;
+
+	return { isValid, yearValue, monthValue, dayValue };
 }
