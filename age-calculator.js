@@ -1,9 +1,3 @@
-// import helper from "helper.js";
-// import validation from "validation.js";
-
-// const helper = require("./helper");
-// const validation = require("./validation");
-
 function ageCalculate() {
 	const dayElement = document.getElementById("dayId");
 	const monthElement = document.getElementById("monthId");
@@ -18,9 +12,9 @@ function ageCalculate() {
 	const yearValue = yearElement.value;
 
 	const currentDate = new Date();
-	const currentDay = getDay(currentDate);
-	const currentMonth = getMonth(currentDate);
-	const currentYear = getYear(currentDate);
+	var currentDay = Number(getDay(currentDate));
+	var currentMonth = Number(getMonth(currentDate));
+	var currentYear = Number(getYear(currentDate));
 
 	const birthDate = new Date(`${monthValue}/${dayValue}/${yearValue}`);
 
@@ -28,20 +22,19 @@ function ageCalculate() {
 	const birthMonth = getMonth(birthDate);
 	const birthYear = getYear(birthDate);
 
-	var monthsInAge;
-	var daysInAge;
+	if (birthDay > currentDay) {
+		currentDay = currentDay + getDaysInMonth(birthMonth, birthYear);
+		currentMonth = currentMonth - 1;
+	}
+
+	if (birthMonth > currentMonth) {
+		currentMonth = currentMonth + 12;
+		currentYear = currentYear - 1;
+	}
 
 	var yearsInAge = currentYear - birthYear;
-
-	if (currentMonth < birthMonth) {
-		yearsInAge--;
-		monthsInAge = currentMonth + 12 - birthMonth;
-	} else monthsInAge = currentMonth - birthMonth;
-
-	if (currentDay < birthDay) {
-		monthsInAge--;
-		daysInAge = currentDay + helper.getDaysInLastMonth(currentDate) - birthDay;
-	} else daysInAge = currentDay - birthDay;
+	var monthsInAge = currentMonth - birthMonth;
+	var daysInAge = currentDay - birthDay;
 
 	dayOutput.innerText = daysInAge;
 	monthOutput.innerText = monthsInAge;
@@ -52,6 +45,7 @@ let form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
+	console.log(validateInputs());
 	if (validateInputs()) {
 		const age = ageCalculate();
 		console.log(age);

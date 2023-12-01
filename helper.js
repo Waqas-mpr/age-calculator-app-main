@@ -1,44 +1,19 @@
 function getDay(date) {
-	console.log(`date: ${date}`);
 	const date2 = new Date(date);
-
-	const day = ("0" + date2.getDate()).slice(-2);
-
-	console.log(`day: ${day}`);
-	return Number(day);
+	return ("0" + date2.getDate()).slice(-2);
 }
 
 function getMonth(date) {
-	const month = new Date(date).getMonth() + 1;
-	console.log(`month: ${month}`);
-	return month;
+	return new Date(date).getMonth() + 1;
 }
 function getYear(date) {
-	const year = new Date(date).getFullYear();
-	console.log(`year: ${year}`);
-	return year;
-}
-
-function getDaysInMonth(date) {
-	const year = getYear(date);
-	const month = getMonth(date);
-
-	const daysInMonth = new Date(year, month, 0).getDate();
-
-	return daysInMonth;
+	return new Date(date).getFullYear();
 }
 
 function getDaysInMonth(month, year) {
-	const daysInMonth = new Date(year, month, 0).getDate();
-
-	return daysInMonth;
+	return new Date(year, month, 0).getDate();
 }
 
-function getDaysInLastMonth(date) {
-	const year = getYear(date);
-	const month = getMonth(date);
-
-	const daysInMonth = new Date(year, month - 1, 0).getDate();
-
-	return daysInMonth;
+function getDaysInLastMonth(month, year) {
+	return new Date(year, month - 1, 0).getDate();
 }

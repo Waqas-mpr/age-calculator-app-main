@@ -204,28 +204,30 @@ input[type="number"] {
 }
 
 .button-container {
+	margin-top: 1.75rem;
 	position: relative;
 }
 
 .line {
-	margin-top: 2rem;
 	border: 1px solid var(--neutral-light-grey);
-	position: relative;
+	position: absolute;
+	width: 100%;
 }
 .button {
 	position: absolute;
-	right: 0;
 	background-color: var(--primary-purple);
 	width: 4rem;
-	height: 4rem;
+	aspect-ratio: 1/1;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
 	border: 0;
-
-	transform: translate(0%, -50%);
+	outline: 0;
+	inset: 0;
+	margin-block: auto;
+	margin-left: auto;
 }
 
 .button:hover,
@@ -270,20 +272,18 @@ svg {
 	.error {
 		font-size: var(--fs-200);
 	}
-	.line {
-		margin-top: 3em;
+	.button-container {
+		margin-top: 2.25rem;
 	}
 	.button {
-		position: absolute;
-
-		transform: translate(-240%, -50%);
+		margin: auto;
 	}
 
 	.output-section {
-		margin-top: 3.5rem;
+		margin-top: 5rem;
 	}
 
-	h1 {
+	.text-output {
 		font-size: var(--fs-800);
 		line-height: 3.5rem;
 	}
