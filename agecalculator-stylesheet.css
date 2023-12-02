@@ -261,9 +261,11 @@ svg {
 @media screen and (max-width: 650px) {
 	:root {
 		--right-bottom-radius: 6rem;
+		--padding: 2rem;
 	}
 	.agecalculator-container {
 		width: auto;
+		margin-inline: 2rem;
 	}
 	.input-section {
 		gap: 0.3rem;
